@@ -11,6 +11,8 @@ def isPalindromic(test):
 
 # 暴力解法
 '''选取所有起点和终点位置的字串，判断长度和回文'''
+
+
 def longestPalindrome(s):
     ans = ""
     max = 0
@@ -25,7 +27,8 @@ def longestPalindrome(s):
 
 
 # 最长公共子串
-# 将字串倒置，与原字串找最长公共子串,动态规划
+# 将字串倒置，与原字串找最长公共子串,再判断是否为回文串
+# 动态规划
 def longestPalindrome1(s):
     if s == "":
         return ""
@@ -41,6 +44,7 @@ def longestPalindrome1(s):
                     arr[i][j] = 1
                 else:
                     arr[i][j] = arr[i - 1][j - 1] + 1
+
             # 还需要添加位置判断，位置正确才是回文子串，只需要判断子串的最后一个的位置情况
             if arr[i][j] > maxlen:
                 before_rev = length - j - 1
@@ -151,8 +155,8 @@ def longestPalindrome4(s):
 
 if __name__ == '__main__':
     # ans = longestPalindrome("babad")
-    # ans = longestPalindrome1("babad")
+    ans = longestPalindrome1("a")
     # ans = longestPalindrome2("babad")
     # ans = longestPalindrome3("babad")
-    ans = longestPalindrome4("babad")
+    # ans = longestPalindrome4("babad")
     print(ans)
